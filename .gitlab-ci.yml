@@ -1,0 +1,35 @@
+image: node:16
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - npm install
+  - chmod +x ./node_modules/.bin/tsc
+  - chmod +x ./node_modules/.bin/jest
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - ./node_modules/.bin/tsc
+    - npm run build
+
+test:
+  stage: test
+  script:
+    - ./node_modules/.bin/jest
+    - npm run test
+
+deploy:
+  stage: deploy
+  script:
+    - npm install -g vercel
+    - vercel --prod --token zr9GFwNNkx9wd8S5Lp9nE8UE
+  only: 
+    - main
