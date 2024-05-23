@@ -9,10 +9,10 @@ before_script:
   - chmod +x ./node_modules/.bin/jest
   - npm install
 
-
 stages:
   - build
   - test
+  - deploy
 
 build:
   stage: build
@@ -23,3 +23,11 @@ test:
   stage: test
   script:
     - npm run test
+
+deploy:
+  stage: deploy
+  script:
+    - npm install -g vercel
+    - vercel --prod --token zr9GFwNNkx9wd8S5Lp9nE8UE
+  only:
+    - main
