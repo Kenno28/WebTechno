@@ -29,5 +29,5 @@ deploy:
   script:
     - npm install -g vercel
     - vercel --prod --token zr9GFwNNkx9wd8S5Lp9nE8UE
-  only:
+  only: 
     - main
