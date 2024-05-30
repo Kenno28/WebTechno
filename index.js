@@ -1,9 +1,6 @@
 require('dotenv').config();
 console.log('Loaded .env configuration');
 
-require("./instrument.js");
-console.log('Loaded instrument.js');
-
 const app = require('./app');
 console.log('Loaded app');
 

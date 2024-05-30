@@ -26,27 +26,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Sentry = __importStar(require("@sentry/node"));
-const profiling_node_1 = require("@sentry/profiling-node");
+
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const HelloService_1 = require("./HelloService");
 const Human_1 = require("./Human");
-// Initialize Sentry
-Sentry.init({
-    dsn: "https://09ad21d48a680657059ef15f98c380db@o4507346130239488.ingest.de.sentry.io/4507346138431568",
-    integrations: [
-        (0, profiling_node_1.nodeProfilingIntegration)(),
-    ],
-    tracesSampleRate: 1.0, // Capture 100% of the transactions
-    profilesSampleRate: 1.0, // Set sampling rate for profiling
-});
+
 const app = (0, express_1.default)();
 const port = 3000;
 const helloService = new HelloService_1.HelloService();
 // Middleware to parse JSON bodies
 // The error handler must be registered before any other error middleware and after all controllers
-Sentry.setupExpressErrorHandler(app);
 app.use(body_parser_1.default.json());
 // All your controllers should live here
 app.get('/', (req, res) => {
