@@ -32,3 +32,8 @@ const HumanSchema = new mongoose_1.Schema({
 });
 const Human = mongoose_1.default.model('Human', HumanSchema);
 exports.Human = Human;
+const Test = new mongoose_1.Schema({
+    name: { type: String, required: true },
+    password: { type: String, required: true },
+    alter: { type: Number, required: true },
+});
