@@ -4,7 +4,7 @@
     "@types/node": "^20.12.8",
     "dd-trace": "^5.14.1",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "sentry": "^0.1.2",
     "winston": "^3.13.0"
   },
