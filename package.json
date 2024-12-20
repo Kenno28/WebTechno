@@ -2,7 +2,7 @@
   "dependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.8",
-    "dd-trace": "^5.14.1",
+    "dd-trace": "^5.29.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "sentry": "^0.1.2",
